@@ -8,7 +8,6 @@ interface Country {
 	name: string;
 }
 
-
 const countries = ref<Country[]>([]);
 
 const search = ref('');
@@ -34,7 +33,6 @@ onMounted(async () => {
 		isLoading.value = false;
 	}
 });
-
 
 </script>
 

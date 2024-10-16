@@ -3,3 +3,8 @@ export default interface Country {
 	name: string,
 	index: number
 }
+
+export default interface Holiday {
+	holiday: string,
+	date: string
+}
