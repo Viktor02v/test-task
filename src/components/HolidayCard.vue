@@ -1,7 +1,10 @@
 <script setup lang="ts">
 
 const props = defineProps<{
-	holiday: Holiday
+	holiday: {
+		localName: string
+		date: string
+	}
 }>();
 
 </script>
