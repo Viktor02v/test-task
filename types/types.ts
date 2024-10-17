@@ -5,6 +5,7 @@ export default interface Country {
 }
 
 export default interface Holiday {
-	holiday: string,
-	date: string
+	   date: string // Assuming you want to include the date of the holiday
+	  countryCode: string
+	  name: string
 }
