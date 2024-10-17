@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import HolidayCard from '@/components/HolidayCard.vue'; // Using '@' to reference src directly
 
-import Btn from '@/components/Btn.vue';
+import CustomBtn from '@/components/costom-btn.vue';
 
 // Define a type for a holiday
 interface Holiday {
@@ -83,7 +83,7 @@ const switchYear = (year: number) => {
 			<!-- Year Buttons (Pagination for 2020-2030) -->
 			<nav class="grid grid-cols-4 gap-5 md:flex md:gap-5 md:items-center">
 				<div v-for="year in years.year" :key="year">
-					<Btn :year="year" :selectedYear="selectedYear" @switchYear="switchYear" />
+					<CustomBtn :year="year" :selectedYear="selectedYear" @switchYear="switchYear" />
 				</div>
 			</nav>
 		</div>
