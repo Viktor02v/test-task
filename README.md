@@ -1,39 +1,66 @@
-# country-info
+# Country Project
 
-This template should help get you started developing with Vue 3 in Vite.
+## Description
 
-## Recommended IDE Setup
+The Country Project is a Vue.js application designed to provide users with information about various countries, including their next public holidays. The application utilizes the Composition API and Pinia for state management, fetching data from a public holiday API. It features a user-friendly interface that allows users to explore countries and their holiday information efficiently.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Features
 
-## Type Support for `.vue` Imports in TS
+- Display a list of countries with their next upcoming holidays.
+- Randomly select and show information for a subset of countries.
+- Responsive design for optimal viewing on various devices.
+- Fetch data from a public holiday API.
+- State management using Pinia for better performance and organization.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Technologies Used
 
-## Customize configuration
+- **Vue.js**: The frontend framework for building the application.
+- **Vue Router**: For handling navigation and routing.
+- **Pinia**: State management library for managing application state.
+- **Axios**: For making HTTP requests to the public holiday API.
+- **Tailwind CSS**: Utility-first CSS framework for styling the application.
+- **TypeScript**: Adds type safety and improves the development experience.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Installation
 
-## Project Setup
+To run this project locally, follow these steps:
 
-```sh
-npm install
-```
+1. Clone the repository:
 
-### Compile and Hot-Reload for Development
+   ```bash
+   git clone <repository-url>
 
-```sh
-npm run dev
-```
+   ```
 
-### Type-Check, Compile and Minify for Production
+2. Navigate into the project directory:
 
-```sh
-npm run build
-```
+   cd country-info
 
-### Lint with [ESLint](https://eslint.org/)
+3. Install Dependencies:
 
-```sh
-npm run lint
-```
+   npm install
+
+4. Set up environment variables:
+
+   Create a .env file in the root of the project and define your API base URL:
+      VITE_API_BASE_URL=<your-api-base-url>
+
+5. Run the development server:
+    npm run dev
+
+country-info/
+│
+├── public/                 # Static assets (images, icons, etc.)
+├── src/
+│   ├── assets/             # Project-specific assets (fonts, images, etc.)
+│   ├── components/         # Vue components (reusable UI elements)
+│   ├── router/             # Vue Router configuration for navigation
+│   ├── services/           # API service functions for fetching data
+│   ├── stores/             # Pinia stores for state management
+│   ├── views/              # View components for different application pages
+│   ├── App.vue             # Main application component
+│   └── main.ts             # Entry point of the application
+│
+├── .env                    # Environment variables configuration
+├── package.json            # Project dependencies and scripts
+└── README.md               # Project documentation
