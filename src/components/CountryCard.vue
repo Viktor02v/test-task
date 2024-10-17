@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {type Country} from '../types/types';
 
-import { defineProps } from 'vue';
 import { RouterLink } from 'vue-router'
 
 const props = defineProps<{
