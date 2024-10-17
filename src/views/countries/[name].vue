@@ -3,7 +3,7 @@ import { ref, reactive, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import axios from 'axios';
 
-import HolidayListCard from '../../components/HolidayListCard.vue';
+import HolidayCard from '../../components/HolidayCard.vue';
 import Btn from '../../components/Btn.vue';
 
 // Define a type for a holiday
@@ -61,26 +61,30 @@ const switchYear = (year: number) => {
 	<main>
 		<div class="container w-full h-full py-20 flex flex-col gap-10">
 			<!-- Heading -->
-			<div class="flex items-center gap-5">
+			<header class="flex items-center gap-5">
 				<h1 class="text-2xl">{{ countryName }}</h1>
-				<div class="w-1 h-1 bg-black"></div>
+				<div class="w-1 h-1 bg-black rounded-full"></div>
 				<h2 class="text-2xl">Country Code: {{ countryCode }}</h2>
-			</div>
+			</header>
 
 			<!-- Holidays List -->
-			<h2 class="text-2xl">Holidays for {{ selectedYear }}</h2>
-			<div class="flex flex-col h-[60vh] overflow-auto gap-5">
-				<ul v-for="(holiday, index) in holidays" :key="index">
-					<HolidayListCard :holiday="holiday" />
-				</ul>
-			</div>
+			<section class="flex flex-col gap-5">
+				<h2 class="text-2xl">Holidays for {{ selectedYear }}</h2>
+				<div class="flex flex-col h-[60vh] overflow-auto gap-5">
+					<ul class="flex flex-col gap-5">
+						<li v-for="(holiday, index) in holidays" :key="index">
+							<HolidayCard :holiday="holiday" />
+						</li>
+					</ul>
+				</div>
+			</section>
 
 			<!-- Year Buttons (Pagination for 2020-2030) -->
-			<div class="flex gap-5 items-center">
+			<nav class="grid grid-cols-4 gap-5 md:flex md:gap-5 md:items-center">
 				<div v-for="year in years.year" :key="year">
 					<Btn :year="year" :selectedYear="selectedYear" @switchYear="switchYear" />
 				</div>
-			</div>
+			</nav>
 		</div>
 	</main>
 </template>

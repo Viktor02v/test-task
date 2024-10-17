@@ -14,7 +14,7 @@ const props = defineProps<{
 
 <template>
 	<router-link :to="`/countries/${encodeURIComponent(country.name)}-${country.countryCode}`">
-		<div class="w-[35vw] h-30 border py-5 border-black">
+		<div class="w-[80vw] md:w-[35vw]  h-30 border py-5 border-black">
 			<p class="text-center">{{ props.country.name }} - {{ props.index + 1 }}</p>
 		</div>
 	</router-link>
