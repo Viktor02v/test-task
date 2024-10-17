@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {type Holiday} from '../types/types';
+
 const props = defineProps<{
 	holiday: Holiday
 }>();
