@@ -1,39 +1,41 @@
-# country-info
+country-holidays-explorer
+This template helps you get started developing with Vue 3 and Vite, using APIs to explore country holidays information.
 
-This template should help get you started developing with Vue 3 in Vite.
+Recommended IDE Setup
+VSCode + Volar (and disable Vetur).
 
-## Recommended IDE Setup
+Type Support for .vue Imports in TS
+TypeScript cannot handle type information for .vue imports by default, so we replace the tsc CLI with vue-tsc for type checking. In editors, we need Volar to make the TypeScript language service aware of .vue types.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Customize configuration
+See Vite Configuration Reference.
 
-## Type Support for `.vue` Imports in TS
+Environment Variables
+Create a .env file in the root directory for storing environment variables such as API URLs:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+sh
+Копировать код
+VITE_API_BASE_URL=https://date.nager.at/api/v3
+Make sure not to commit this file to version control by ensuring .env is listed in .gitignore.
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+Project Setup
+sh
+Копировать код
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+Compile and Hot-Reload for Development
+sh
+Копировать код
 npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
+Type-Check, Compile and Minify for Production
+sh
+Копировать код
 npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
+Lint with ESLint
+sh
+Копировать код
 npm run lint
-```
+APIs Used
+Available Countries: https://date.nager.at/api/v3/AvailableCountries
+Next Public Holidays by Country: https://date.nager.at/api/v3/NextPublicHolidays/{countryCode}
+Public Holidays by Year and Country: https://date.nager.at/api/v3/PublicHolidays/{year}/{countryCode}
+
