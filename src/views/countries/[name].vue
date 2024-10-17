@@ -3,8 +3,9 @@ import { ref, reactive, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import axios from 'axios';
 
-import HolidayCard from '../../components/HolidayCard.vue';
-import Btn from '../../components/Btn.vue';
+import HolidayCard from '@/components/HolidayCard.vue'; // Using '@' to reference src directly
+
+import Btn from '@/components/Btn.vue';
 
 // Define a type for a holiday
 interface Holiday {
