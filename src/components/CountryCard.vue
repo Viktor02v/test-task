@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {type Country} from '../types/types';
 
 import { RouterLink } from 'vue-router'
 
