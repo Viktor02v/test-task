@@ -36,13 +36,15 @@ const filteredCountries = computed(() => {
     return country.name.toLowerCase().startsWith(searchTerm)
   })
 })
+// Environment variables
+const apiUrl = import.meta.env.VITE_API_BASE_URL
 
 // Hooks
 onMounted(async () => {
   try {
     // Fetch the available countries
     const countriesResponse = await axios.get<Country[]>(
-      'https://date.nager.at/api/v3/AvailableCountries',
+      `${apiUrl}/AvailableCountries`,
     )
     countries.value = countriesResponse.data
 
@@ -75,7 +77,7 @@ const getRandomCountries = async (countriesList: Country[], count: number) => {
 const fetchNextHoliday = async (countryCode: string) => {
   try {
     const { data } = await axios.get<Holiday[]>(
-      `https://date.nager.at/api/v3/NextPublicHolidays/${countryCode}`,
+      `${apiUrl}/NextPublicHolidays/${countryCode}`,
     )
     return data[0] || null // Return the next holiday or null if none found
   } catch (error) {

@@ -31,13 +31,16 @@ const route = useRoute()
 const countryName = route.params.name as string
 const countryCode = route.params.countryCode as string
 
+// Environment variables
+const apiUrl = import.meta.env.VITE_API_BASE_URL
+
 // Function to fetch holidays based on the selected year and country code
 const fetchHolidays = async (year: number) => {
   try {
     if (!countryCode) {
       throw new Error('Country code is undefined')
     }
-    const url = `https://date.nager.at/api/v3/PublicHolidays/${year}/${countryCode}`
+    const url = `${apiUrl}/PublicHolidays/${year}/${countryCode}`
     console.log(`Fetching holidays for ${year} from URL: ${url}`)
     const { data } = await axios.get<Holiday[]>(url)
     holidays.value = data
