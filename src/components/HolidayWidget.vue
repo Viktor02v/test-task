@@ -1,6 +1,8 @@
 <script setup lang="ts">
+// Components
 import UpcomingHolidayCard from '@/components/UpcomingHolidayCard.vue'
 
+// Props
 const props = defineProps<{
 	randomCountries: {
 		country: {
@@ -21,11 +23,10 @@ const props = defineProps<{
 			<div v-if="props.randomCountries.length > 0" class="flex flex-col justify-between gap-5 p-10">
 				<div v-for="(item, index) in props.randomCountries" :key="index">
 					<!-- Upcoming Holiday Card -->
-					<UpcomingHolidayCard :item="item" />
+					<UpcomingHolidayCard :item="item" :next-holiday="item.nextHoliday" />
 				</div>
 			</div>
 			<div v-else class="text-center">No random countries available.</div>
-			<!-- Fallback if no random countries -->
 		</div>
 	</article>
 </template>

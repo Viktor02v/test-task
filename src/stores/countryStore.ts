@@ -1,8 +1,8 @@
-// src/stores/countryStore.ts
 import { defineStore } from 'pinia';
-import axios from 'axios';
 import { ref, onMounted } from 'vue';
+import { fetchAvailableCountries } from '@/services/api'; // Importing API function
 
+// Define a type for a country
 interface Country {
   countryCode: string;
   name: string;
@@ -11,28 +11,25 @@ interface Country {
 export const useCountryStore = defineStore('countryStore', () => {
   const countries = ref<Country[]>([]);
   const isLoading = ref(true);
-  const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
+  // Define the fetchCountries function
   const fetchCountries = async () => {
+    isLoading.value = true; // Set loading state
     try {
-      const countriesResponse = await axios.get<Country[]>(`${apiUrl}/AvailableCountries`);
-      countries.value = countriesResponse.data;
+      countries.value = await fetchAvailableCountries(); // Fetch countries from API
     } catch (error) {
       console.error('Error fetching countries:', error);
     } finally {
-      isLoading.value = false;
+      isLoading.value = false; // Reset loading state
     }
   };
 
-  onMounted(() => {
-    if (countries.value.length === 0) {
-      fetchCountries(); // Fetch only if countries haven't been loaded
-    }
-  });
+  // Call fetchCountries when the store is initialized
+  onMounted(fetchCountries); 
 
   return {
     countries,
     isLoading,
-    fetchCountries,
+    fetchCountries, // Ensure this function is returned
   };
 });

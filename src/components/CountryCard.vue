@@ -1,6 +1,8 @@
 <script setup lang="ts">
+// Setup
 import { RouterLink } from 'vue-router'
 
+// Props
 const props = defineProps<{
 	country: {
 		name: string

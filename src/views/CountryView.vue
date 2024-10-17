@@ -1,10 +1,11 @@
 <script setup lang="ts">
+// Setup
 import { ref, reactive, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import axios from 'axios'
 
-import HolidayCard from '@/components/HolidayCard.vue' // Using '@' to reference src directly
-
+// Components
+import HolidayCard from '@/components/HolidayCard.vue'
 import CustomBtn from '@/components/CustomBtn.vue'
 
 // Define a type for a holiday
@@ -34,7 +35,7 @@ const countryCode = route.params.countryCode as string
 // Environment variables
 const apiUrl = import.meta.env.VITE_API_BASE_URL
 
-// Function to fetch holidays based on the selected year and country code
+// Fetch holidays based on the selected year and country code
 const fetchHolidays = async (year: number) => {
 	try {
 		if (!countryCode) {
@@ -54,7 +55,7 @@ onMounted(() => {
 	fetchHolidays(selectedYear.value)
 })
 
-// Method to handle year switch
+//Handle year switch
 const switchYear = (year: number) => {
 	selectedYear.value = year
 	fetchHolidays(year) // Fetch holidays for the selected year

@@ -1,7 +1,11 @@
 <script setup lang="ts">
+// Setup
 import { ref, computed } from 'vue';
+
+// Components
 import CountryCard from '@/components/CountryCard.vue';
 
+// Props
 const props = defineProps<{
 	countries: {
 		name: string;
