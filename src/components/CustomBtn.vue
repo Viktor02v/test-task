@@ -1,4 +1,6 @@
 <script setup lang="ts">
+
+// Props
 const props = defineProps<{
 	year: number
 	selectedYear: number
