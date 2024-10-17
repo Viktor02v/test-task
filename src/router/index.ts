@@ -11,7 +11,7 @@ const router = createRouter({
     {
       path: '/country/:name-:countryCode',
       name: 'country',
-      component: () => import('../views/country-view.vue'),
+      component: () => import('../views/CountryView.vue'),
     },
   ],
 })
