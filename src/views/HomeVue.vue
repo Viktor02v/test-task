@@ -4,8 +4,8 @@ import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 
 // Components
-import CountryCard from '../components/CountryCard.vue';
-import UpcomingHolidayCard from '../components/UpcomingHolidayCard.vue';
+import CountryCard from '@/components/CountryCard.vue';
+import UpcomingHolidayCard from '@/components/UpcomingHolidayCard.vue';
 
 // Types
 interface Country {
@@ -81,44 +81,41 @@ const fetchNextHoliday = async (countryCode: string) => {
 
 <template>
 	<div class="container w-full h-full py-20">
-	  <div class="flex flex-col md:flex-row md:gap-20 ">
+		<div class="flex flex-col md:flex-row md:gap-20 ">
 
-		 <!-- Search and Countries List Section -->
-		 <section class=" h-[100vh] flex flex-col">
-			<input
-			  @input="search = ($event.target as HTMLInputElement).value"
-			  type="text"
-			  placeholder="Search for a country"
-			  class=" md:w-[20vw] p-2 border border-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-			  aria-label="Search Countries"
-			/>
-			<!-- Countries List -->
-			<h1 class="mt-5 text-2xl font-semibold mb-5">Countries List</h1>
-			<div class="overflow-auto h-[60vh]">
-			  <div v-if="isLoading" class="text-center">Loading...</div> <!-- Loading State -->
-			  <div v-else>
-				 <div v-for="(country, index) in filteredCountries" :key="index" class="flex w-full flex-col py-3">
-					<!-- Country Card -->
-					<CountryCard :country="country" :index="index" />
-				 </div>
-			  </div>
-			</div>
-		 </section>
- 
-		 <!-- Random Countries Widget Section -->
-		 <section class="flex-1 h-full mt-10 md:mt-0">
-			<h1 class="text-2xl font-semibold mb-10">Random Countries Widget</h1>
-			<div class="w-full h-[60vh] overflow-auto border border-2 border-black rounded-md">
-			  <div v-if="randomCountries.length > 0" class="flex flex-col justify-between gap-5 p-10">
-				 <div v-for="(item, index) in randomCountries" :key="index">
-					<!-- Upcoming Holiday Card -->
-					<UpcomingHolidayCard :item="item" />
-				 </div>
-			  </div>
-			  <div v-else class="text-center">No random countries available.</div> <!-- Fallback if no random countries -->
-			</div>
-		 </section>
-	  </div>
+			<!-- Search and Countries List Section -->
+			<section class=" h-[100vh] flex flex-col">
+				<input @input="search = ($event.target as HTMLInputElement).value" type="text"
+					placeholder="Search for a country"
+					class=" md:w-[20vw] p-2 border border-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+					aria-label="Search Countries" />
+				<!-- Countries List -->
+				<h1 class="mt-5 text-2xl font-semibold mb-5">Countries List</h1>
+				<div class="overflow-auto h-[60vh]">
+					<div v-if="isLoading" class="text-center">Loading...</div> <!-- Loading State -->
+					<div v-else>
+						<div v-for="(country, index) in filteredCountries" :key="index" class="flex w-full flex-col py-3">
+							<!-- Country Card -->
+							<CountryCard :country="country" :index="index" />
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Random Countries Widget Section -->
+			<section class="flex-1 h-full mt-10 md:mt-0">
+				<h1 class="text-2xl font-semibold mb-10">Random Countries Widget</h1>
+				<div class="w-full h-[60vh] overflow-auto border border-2 border-black rounded-md">
+					<div v-if="randomCountries.length > 0" class="flex flex-col justify-between gap-5 p-10">
+						<div v-for="(item, index) in randomCountries" :key="index">
+							<!-- Upcoming Holiday Card -->
+							<UpcomingHolidayCard :item="item" />
+						</div>
+					</div>
+					<div v-else class="text-center">No random countries available.</div>
+					<!-- Fallback if no random countries -->
+				</div>
+			</section>
+		</div>
 	</div>
- </template>
- 
+</template>
