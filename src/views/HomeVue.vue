@@ -105,7 +105,7 @@ const fetchNextHoliday = async (countryCode: string) => {
 			<!-- Random Countries Widget Section -->
 			<section class="flex-1 h-full mt-10 md:mt-0">
 				<h1 class="text-2xl font-semibold mb-10">Random Countries Widget</h1>
-				<div class="w-full h-[60vh] overflow-auto border border-2 border-black rounded-md">
+				<div class="w-full h-[60vh] overflow-auto border-2 border-black rounded-md">
 					<div v-if="randomCountries.length > 0" class="flex flex-col justify-between gap-5 p-10">
 						<div v-for="(item, index) in randomCountries" :key="index">
 							<!-- Upcoming Holiday Card -->
